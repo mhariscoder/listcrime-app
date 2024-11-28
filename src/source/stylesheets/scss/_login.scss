@@ -1,0 +1,207 @@
+@use 'variables' as *;
+@use 'animation' as *;
+@use 'mixins' as *;
+
+.login-wrapper {
+    display: flex;
+
+    @include respond-to('lg') {
+        flex-direction: column;
+    }
+
+    >.left {
+        width: 50%;
+        background: linear-gradient(144deg, $primary-color 30%, $secondary-color 70%);
+
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 5rem;
+
+        @include respond-to('lg') {
+            width: initial;
+            height: initial;
+            padding: 2rem;
+        }
+
+        .inner {
+            @include respond-to('lg') {
+                text-align: center;
+            }
+
+            h1 {
+                color: $white-color;
+                font-size: $heading-size;
+            }
+            h2 {
+                color: $white-color;
+                font-size: $heading-size;
+            }
+            p {
+                color: $white-color;
+                font-size: $para-size;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    >.right {
+        width: 50%;
+        background: $lighgray-color;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8rem;
+
+        @include respond-to('lg') {
+            width: initial;
+            height: initial;
+            
+        }
+
+        @include respond-to('md') {
+            padding: 2rem;
+        }
+
+        .inner {
+            min-width: 25rem;
+            
+            @include respond-to('sm') {
+                min-width: initial;
+            }
+            
+            h2 {
+                color: $black-color;
+                font-size: $heading-size;
+            }
+            p {
+                color: $black-color;
+                font-size: $para-size;
+                margin-bottom: 0;
+            }
+
+            .title-bar {
+                text-align: center;
+               
+                p {
+                    line-height: 1em;
+                }
+            }
+
+            .form-container {
+                ::placeholder {
+                    color: $darkgray-color;
+                    opacity: 1; /* Firefox */
+                }
+                  
+                ::-ms-input-placeholder { /* Edge 12 -18 */
+                    color: $darkgray-color;
+                }
+
+                .forgot-password {
+                    text-align: right;
+
+                    a {
+                        color: $black-color; 
+                        &::before {
+                            background-color: $black-color;
+                        }
+                    }
+                    
+                }
+
+                input[type='text'], input[type='password'] {
+                    border: 1px solid $input-border-color;
+                    border-radius: $input-border-radius;
+                    height: $input-height;
+                    padding: 1em;
+                    width: 100%;
+                    outline: none!important;
+                }
+
+                button {
+                    background: linear-gradient(144deg, $primary-color 0%, $secondary-color 100%);
+                    color: $white-color;
+                    border-radius: 1.94875rem;
+                    width: 100%;
+                    border: none;
+                    height: $input-height;
+                    transition: all 0.3s ease; /* Make sure this is applied to the background property */
+                
+                    &:hover {
+                        // background: $primary-color;
+                        animation: shake 0.5s;
+                        animation-iteration-count: infinite;
+                    }
+                }
+                
+            }
+
+            .or-continue-with {
+                display: flex;
+                align-items: center;
+                padding: 0 2em;
+                
+                .content {
+                    flex: 2;
+                    color: $black-color;
+                    text-align: center;
+                }
+
+                .line {
+                    flex: 1;
+                    height: 1px;
+                    width: 100%;
+                    background-color: $midgray-color;
+                }
+            }
+
+            .social-icons {
+                padding: 0 3em;
+
+                @include respond-to('sm') {
+                    padding: 0;
+                }
+
+                .social-icon {
+                    width: 70px;
+                    height: 60px;
+                    background-color: $white-color;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: $input-border-radius;
+                    border: 1px solid $input-border-color;
+                    transition: all 0.3s ease;
+                    &:hover {
+                        animation: shake 0.5s;
+                        animation-iteration-count: infinite;
+                    }
+
+                    a {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .terms {
+                max-width: 25rem;
+            }
+
+            .others {
+                a {
+                    color: $lightblue-color;
+                    &::before {
+                        background-color: $lightblue-color;
+                    }
+                }
+            }
+        }
+    }
+}
+  

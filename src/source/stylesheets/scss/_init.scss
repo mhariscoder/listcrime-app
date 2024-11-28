@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    position: relative;
+    text-decoration: none!important;
+    
+        &::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 1px; 
+            width: 0; 
+            transition: width 0.3s ease;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px; /* Slim scrollbar width */
+  height: 8px; /* Slim horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: $lighgray-color; /* Track background color (optional) */
+  border-radius: 10px; /* Optional: rounded corners on the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(144deg, $primary-color 30%, $secondary-color 70%); /* Gradient on the thumb */
+  border-radius: 10px; /* Optional: rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(144deg, #00377A 30%, #001D3A 70%); /* Darken the gradient on hover */
+}

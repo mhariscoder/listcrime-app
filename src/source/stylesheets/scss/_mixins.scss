@@ -1,0 +1,13 @@
+@use 'breakpoints' as *;
+@use 'sass:map';
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not defined in the breakpoints map.";
+  }
+}
